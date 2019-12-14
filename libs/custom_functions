@@ -1,0 +1,53 @@
+function check_sudo {
+    if [ $(id -u) -ne 0 ]; then
+        echo "Installer must be run as sudo."
+        exit 1
+    fi
+}
+
+function check_termux_storage {
+    echo "Checking storage permission."
+    if [ -d "$HOME/storage/" ]; then
+        echo "Permission already granted"
+    else
+        echo "Please allow storage permission"
+        termux-setup-storage
+        sleep 5
+        echo "Thanks"
+    fi
+}
+
+function update_system {
+    echo "Running apt update"
+    apt-get update > /dev/null
+    echo "Running apt upgrade"
+    apt-get upgrade > /dev/null
+    #echo "Running apt autoremove and clean"
+    #apt -qq autoremove
+    #apt -qq clean
+    echo "System updated!"
+}
+
+function install_pkg {
+    echo -e "Installing $1...\nThis will take a while..."
+    apt-get -y install $1 > /dev/null
+    echo -e "$1 installed!!\n"
+}
+
+function remove_pkg {
+    echo "Removing $1..."
+    apt-get -y purge $1 > /dev/null
+    echo -e "$1 removed!!\n"
+}
+
+function message_done {
+    echo -e "\n
+    INSTALLATION DONE!!!\n
+     - You may want to customize and beautify GRUB Bootloader.\n
+     - Visit https://github.com/vinceliuice/grub2-themes for more info.\n
+    \n
+     - You may also want to run install_ppa.sh to install\n
+        - Spotify\n
+        - Etcher\n
+        - Virtualbox\n"
+}

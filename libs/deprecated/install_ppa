@@ -1,0 +1,28 @@
+function add_apt_sources_list {
+# Add PPA to apt-sources.list (key not included because they changed over time)
+## Spotify
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+## Etcher
+echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
+## Oracle VirtualBox
+echo "deb https://download.virtualbox.org/virtualbox/debian buster contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+}
+
+function register_trusted_keys {
+# Add gpg.keys - You may want to review the keys first
+##  Spotify
+curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
+##  Etcher
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
+##  Virtualbox
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+}
+
+function install_from_ppa {
+# Install packages from apt
+apt update
+apt -y install spotify-client
+apt -y install balena-etcher-electron
+apt -y install virtualbox-6.0
+}

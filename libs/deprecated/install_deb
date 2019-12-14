@@ -1,0 +1,24 @@
+function install_offline {
+	declare -A array
+
+	array[firmware-misc-nonfree]=firmware-misc-nonfree_20190114-2_all.deb
+	array[firmware-realtek]=firmware-realtek_20190114-2_all.deb
+	array[gnome-appfolders-manager]=gnome-appfolders-manager_0.3.1-1_all.deb
+	array[bcmwl-kernel-source]=bcmwl-kernel-source_6.30.223.271+bdcom-0ubuntu4_amd64.deb
+	array[dkms]=dkms_2.3-3ubuntu9.2_all.deb
+	array[libc6-dev]=libc6-dev_2.27-3ubuntu1_amd64.deb
+	array[linux-libc-dev]=linux-libc-dev_4.15.0-48.51_amd64.deb
+
+	for i in "${!array[@]}"; do
+		if [ $i = $1 ]; then
+			dpkg -i $PWD/deb/${array[$i]}
+		fi
+	done
+}
+
+# Get key value pairs
+##  echo "key  : $i"
+##  echo "value: ${array[$i]}"
+
+# Usage - function_call [package]
+##  install_offline gnome-appfolders-manager
