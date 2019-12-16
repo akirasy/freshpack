@@ -15,11 +15,13 @@ update_system
 # Basic package for a functional desktop environment 
 basic_packages=(
 i3                                       # main window manager
+xorg                                     # required xsession
 pcmanfm                                  # file manager
 pulseaudio pavucontrol                   # audio controls
 feh                                      # desktop wallpaper
 lxapperance arc-theme faba-icon-theme    # look and feel
 lxterminal                               # to replace default terminal
+lightdm                                  # required to enable autologin
 )
 
 echo -e "Installing required packages\n"
