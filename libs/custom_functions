@@ -19,12 +19,9 @@ function check_termux_storage {
 
 function update_system {
     echo "Running apt update"
-    apt-get update > /dev/null
+    apt-get update
     echo "Running apt upgrade"
-    apt-get upgrade > /dev/null
-    #echo "Running apt autoremove and clean"
-    #apt -qq autoremove
-    #apt -qq clean
+    apt-get -y upgrade
     echo "System updated!"
 }
 
@@ -46,7 +43,7 @@ function message_done {
      - You may want to customize and beautify GRUB Bootloader.\n
      - Visit https://github.com/vinceliuice/grub2-themes for more info.\n
     \n
-     - You may also want to run install_ppa.sh to install\n
+     - You may also want to install these 3rd party packages\n
         - Spotify\n
         - Etcher\n
         - Virtualbox\n"
