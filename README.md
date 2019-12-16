@@ -34,6 +34,10 @@
 - Perfectly done by RaspberryPi team. No issue at all. Proceed with `install.sh`.
 
 # Favorite 3rd-party packages
+## grub2-themes
+- Beautify grub screeen with cutomization. I've found some good repository by [vinceliuice](https://github.com/vinceliuice) on github.
+- Go to repository --> Links: [grub2-themes](https://github.com/vinceliuice/grub2-themes).
+- There is an easy installation bash provided.
 ## GNOME AppFolder Manager
 - This is a useful package in putting app into folders.
   - `gnome-appfolder-manager`[Download](https://github.com/muflone/gnome-appfolders-manager/releases/download/0.3.1/gnome-appfolders-manager_0.3.1-1_all.deb)
