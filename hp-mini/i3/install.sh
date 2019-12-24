@@ -18,12 +18,9 @@ i3                                      # main window manager
 pcmanfm                                 # file manager
 pulseaudio pavucontrol                  # audio controls
 feh                                     # desktop wallpaper
-lxapperance arc-theme faba-icon-theme   # look and feel
+lxappearance arc-theme faba-icon-theme  # look and feel
 lxterminal                              # to replace default terminal
-arandr                                  # Screen layout editor
-network-manager                         # Prefer to use nmtui
-software-properties-common              # Enable add-apt-repository
-firmware-realtek                        # Realtek driver
+firmware-realtek                        # realtek driver
 )
 
 echo -e "Installing required packages\n"
@@ -38,7 +35,6 @@ vim         # text editor
 pdftk       # pdf toolkit
 evince      # pdf reader
 libreoffice # office suite
-p7zip       # file compressor
 )
 
 echo -e "Installing favorite packages\n"
