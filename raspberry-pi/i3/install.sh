@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-#######################################################
-# Script to install packages                          #
-# Packages installed are as the code given            #
-#######################################################
-
 source ../../libs/custom_functions
 
 ## Setting up
@@ -12,32 +7,36 @@ check_sudo
 clear
 update_system
 
-# Basic package for a functional desktop environment 
-basic_packages=(
-i3                                       # main window manager
-xorg                                     # required xsession
-pcmanfm                                  # file manager
-pulseaudio pavucontrol                   # audio controls
-feh                                      # desktop wallpaper
-lxapperance arc-theme faba-icon-theme    # look and feel
-lxterminal                               # to replace default terminal
-lightdm                                  # required to enable autologin
+packages_required=(
+i3                          # main window manager
+xorg                        # required xsession
+lightdm                     # required to enable autologin
+lxterminal                  # to replace default terminal
+pulseaudio pavucontrol      # audio controls
+)
+
+packages_utility=(
+xfe                         # file manager
+feh                         # desktop wallpaper
+lxapperance                 # look and feel
+arc-theme faba-icon-theme   # look and feel
+vim                         # text editor
+git                         # version control 
+)
+
+packages_other=(
+vlc omxplayer kodi          # media player
+chromium-browser            # browser
+libreoffice                 # office suite
 )
 
 echo -e "Installing required packages\n"
-apt -y install "${basic_packages[@]}"
-echo -e "Packages installed\n"
+apt -y install "${packages_required[@]}"
 
-# Favorite package for fun (^_^)
-fav_packages=(
-vlc omxplayer kodi  # media player
-chromium-browser    # browser - package name might differ across multiarch
-git                 # installs git obviously
-vim                 # text editor
-)
+echo -e "Installing utilities packages\n"
+apt -y install "${packages_utility[@]}"
 
 echo -e "Installing favorite packages\n"
-apt -y install "${fav_packages[@]}"
-echo -e "Packages installed\n"
+apt -y install "${packages_other[@]}"
 
 message_done

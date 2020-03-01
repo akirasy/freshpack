@@ -7,6 +7,12 @@
   - `firmware-realtek.deb` [Download](http://http.us.debian.org/debian/pool/non-free/f/firmware-nonfree/firmware-realtek_20190114-2_all.deb)
 - Got issue in using wifi due to well documented bug of `NetworkManager.conf`. Execute `wifiFix.sh` first prior to `install.sh`. 
 - Graphic driver installation require user prompt.
+### Debian-Minimal
+- This is my favorite so far. I use minimal debian install and use openbox on top of it
+- As above, offline packages are needed to use wifi-dongle
+  - `firmware-misc-nonfree.deb` [Download](http://http.us.debian.org/debian/pool/non-free/f/firmware-nonfree/firmware-misc-nonfree_20190114-2_all.deb)
+  - `firmware-realtek.deb` [Download](http://http.us.debian.org/debian/pool/non-free/f/firmware-nonfree/firmware-realtek_20190114-2_all.deb)
+
 ### Ubuntu
 - Installing ubuntu doesn't make much hassle.
 - Proceed with `install.sh`.
@@ -16,8 +22,6 @@
 - Get a minimal Debian OS installation, then proceed to installation of i3wm.
 - Debian OS does not include non-free packages. Fresh install require offline packages as below.
   - `firmware-realtek.deb` [Download](http://http.us.debian.org/debian/pool/non-free/f/firmware-nonfree/firmware-realtek_20190114-2_all.deb)
-### Debian OS
-- So far so good with default package.
 
 ## Macbook-Pro
 ### Ubuntu
@@ -63,4 +67,4 @@ sudo apt-get install balena-etcher-electron
 # Further optimization
 - [X] putting ideas here
 - [X] replace `*.deb` files to downloadable and working links
-- [ ] better `private ppa` installation script
+- [ ] create a wiki file on frequently used How-Tos

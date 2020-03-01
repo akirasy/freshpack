@@ -1,20 +1,15 @@
-#!/bin/bash
-
-#######################################################
-# Script to install my basic packages                 #
-# Packages installed are as the code given            #
-#######################################################
+#!/usr/bin/env bash
 
 source ../libs/custom_functions
 
-# Setting up
+# setting up
 clear
 echo -e "Initializing\n"
 check_termux_storage
 echo -e "Updating termux environment to latest version..\n"
 update_system
 
-# My basic packages
+# favorite packages
 packages=(
 git         # version control
 nano vim    # text editor
@@ -25,6 +20,8 @@ man         # documentation
 ffmpeg      # media library
 openssh     # ssh
 )
+
 echo -e "Installing desired packages\n"
 apt -y install "${packages[@]}"
-echo -e "All packages installed\n"
+
+message_done
