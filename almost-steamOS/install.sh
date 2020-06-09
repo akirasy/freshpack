@@ -16,6 +16,8 @@ add_arch(){
 packages_required=(
 network-manager
 xorg
+openbox
+lightdm
 )
 
 packages_graphic=(
@@ -23,17 +25,20 @@ nvidia-driver
 nvidia-driver-libs-i386
 )
 
-packages_openbox=(
-openbox
+packages_utility=(
 pulseaudio pavucontrol
-feh tint2 dmenu
-xfe
+lxterminal
+tint2
 vim
-git
 )
 
 packages_steam=(
 steam
+)
+
+packages_firmware=(
+firmware-realtek
+firmware-misc-nonfree
 )
 
 # begin install
@@ -51,5 +56,10 @@ apt -y install "${packages_graphic[@]}"
 apt -y install "${packages_steam[@]}"
 
 echo -e "Installing OpenboxWM and app\n"
-apt -y install "${packages_openbox[@]}"
+apt -y install "${packages_utility[@]}"
+apt -y install "${packages_firmware[@]}"
 
+echo -e "Applying settings for Almost SteamOS\n"
+mkdir -p ~/.config/
+cp -r $PWD/config/openbox ~/.config/
+cp -r $PWD/config/tint2 ~/.config/
